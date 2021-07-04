@@ -2,7 +2,23 @@
 // Write a function that determines if the relation is true or false. 
 
 function isTrue(relation) {
-	
+	let answer = false
+    if (relation.includes("=")) {
+        let val1 = parseInt(relation.slice(0, relation.indexOf("=")))
+        let val2 = parseInt(relation.slice(relation.indexOf("=") + 1))
+        val1 === val2 ? answer = true : null
+    }
+    if (relation.includes("<")) {
+        let val1 = parseInt (relation.slice(0, relation.indexOf("<")))
+        let val2 = parseInt(relation.slice(relation.indexOf("<")))
+        val1 < val2 ? answer = true : null
+    }
+    if (relation.includes(">")) {
+        let val1 = parseInt(relation.slice(0, relation.indexOf(">")))
+        let val2 = parseInt(relation.slice(relation.indexOf(">") + 1))
+        val1 > val2 ? answer = true : null
+    }
+    return answer
 } 
 
 console.log(isTrue("8<7"), false)
